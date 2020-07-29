@@ -19,7 +19,6 @@ public class Main {
                     if(k != i && k!= j)
                         sum += small[k];
                 }
-                
                  
                 if(sum == 100) {
                     s1 = i;
