@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+
 class Top {
 	int height, idx;
 
@@ -45,8 +46,8 @@ public class Main {
 				stack.push(new Top(building, i));
 			}
 		}
-		for (int i = 0; i < N; i++) {
-			System.out.print(answer[i] +" ");
-		}
+        for (int a: answer)
+            System.out.print(a +" ");
+		
 	}
 }
