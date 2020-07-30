@@ -31,11 +31,9 @@ public class Main {
 					while (!stack.isEmpty() && stack.peek().height < building) {
 						stack.pop();
 					}
-					
 					if(!stack.isEmpty()) {
 						answer[i] = stack.peek().idx + 1;
 					}
-					
 					stack.push(new Top(building, i));
 				} else {
 					answer[i] = stack.peek().idx + 1;
@@ -45,8 +43,8 @@ public class Main {
 				stack.push(new Top(building, i));
 			}
 		}
-		for (int i = 0; i < N; i++) {
-			System.out.print(answer[i] +" ");
+		for(int a: answer)
+			System.out.printf("%d ",a);
 		}
 	}
 }
