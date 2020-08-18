@@ -4,68 +4,64 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	static int N, Answer=0;
-	static int[] Tmp, P, S, Origin;
-
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken());
+	static int N, Answer = 0;
+	static int[] P, S, Tmp, Origin;
+	static BufferedReader input;
+	static StringTokenizer tokens;
+	
+	public static void main(String[] args) throws Exception {
+		input = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(input.readLine());
+		// 초기화
 		P = new int[N];
 		S = new int[N];
-		Origin = new int[N];
 		Tmp = new int[N];
-
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < N; i++) {
-			Origin[i] = P[i] = Integer.parseInt(st.nextToken());
+		boolean chk;
+		
+		
+		tokens = new StringTokenizer(input.readLine());
+		for (int n=0; n<N; n++) {
+			P[n] = Integer.parseInt(tokens.nextToken());
 		}
-
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < N; i++) {
-			S[i] = Integer.parseInt(st.nextToken());
+		tokens = new StringTokenizer(input.readLine());
+		for (int n=0; n<N; n++) {
+			S[n] = Integer.parseInt(tokens.nextToken());
 		}
-
-		System.out.println(findSortCount());
-	}
-
-	private static int findSortCount() {
-		while (!chk()) {
+		
+		Origin = P.clone();
+		
+		while (!chked()) {
+            boolean c = true;
+			
+			for(int i=0; i<N; i++) {
+				Tmp[S[i]] = P[i];
+			}
+			
+			P = Tmp.clone();
 			Answer++;
-			shuffle();
-			if (isCycle()) {
-				return -1;
-			}
+			
+			for (int i = 0; i < N; i++) {
+			    if (Origin[i] != P[i]) {
+                    c = false;
+				    break;
+			    }
+		    }
+            if(c) {
+                Answer = -1;
+                break;
+            }
+		    
 		}
-		return Answer;
-	}
+		System.out.println(Answer);
 
-	private static void shuffle() {
-		for (int i = 0; i < N; i++) {
-			Tmp[i] = P[i];
-		}
-		for (int i = 0; i < N; i++) {
-			P[S[i]] = Tmp[i];
-		}
 	}
-
-	private static boolean isCycle() {
-		for (int i = 0; i < N; i++) {
-			if (Origin[i] != P[i]) {
+	static boolean chked() {
+		for(int i=0; i<N; i++) {
+			if(P[i] != i%3) {
 				return false;
 			}
 		}
 		return true;
 	}
-
-	private static boolean chk() {
-		for (int i = 0; i < N; i++) {
-			if (P[i] != (i % 3)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 }
 
