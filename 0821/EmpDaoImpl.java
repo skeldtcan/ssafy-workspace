@@ -135,6 +135,8 @@ public class EmpDaoImpl implements EmpDao {
 		} catch (SQLException e) {
 			con.setAutoCommit(true);
 			e.printStackTrace();
+		} finally {
+			con.setAutoCommit(true);
 		}
 		return result;
 	}
