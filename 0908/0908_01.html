@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	hr{
+		border: 1px solid orange;
+	}
+	
+	legend{
+		color: green;
+		font-weight: bold;
+	}
+	li{
+		text-align: right;
+		margin: 5px;
+		margin-right: 140px;
+	}
+	input{
+		width: 210px;
+	}
+	#header{
+		height: 80px;
+	}
+	#main_body{
+		margin-top: 10px;
+		margin-left: 50px;
+		width: 600px;
+	}
+	#footer{
+		text-align: right;
+	}
+	.orange_header{
+		position: absolute;
+		color: orange;
+		top: 20px;
+		left: 160px;
+		font-size: 35px;
+		font-weight: bold;
+	}
+	.black_header{
+		position: absolute;
+		top: 22px;
+		left: 162px;
+		font-size: 35px;
+		font-weight: bold;
+	}
+	.sub_group{
+		margin-top: 20px;
+	}
+	.essential{
+		border: 1px solid red;
+	}
+	.inputbutton{
+		width: 150px;
+		margin-right: 5px;
+	}
+	
+</style>
+</head>
+<body>
+	<div id="header">
+		<span class="black_header">
+			Become a Member
+		</span>
+		<span class="orange_header">
+			Become a Member
+		</span>
+	</div>
+	<hr>
+	<div id="main_body">
+		<div id="regestration" class="form_box">
+		<form method="post" action="submit.html"></form>
+		
+			<fieldset class="sub_group">
+				<legend>Regestration Information</legend>
+				<ul type="none">
+					<li>
+						<label for="email">E-Mail: </label><input class="essential" type="email" id="email" name="email">
+					</li>
+					<li>
+						<label for="pw">Password: </label><input class="essential" type="password" id="pw" name="pw"
+						placeholder="At least 6 letters or numbers">
+					</li>
+					<li>
+						<label for="verifypw">Verify Password: </label><input class="essential" type="password" id="verifypw" name="verifypw">
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset class="sub_group">
+				<legend>Member Information</legend>
+				<ul type="none">
+					<li>
+						<label for="fname">First Name: </label><input class="essential" type="text" id="fname" name="fname">
+					</li>
+					<li>
+						<label for="lname">Last Name: </label><input class="essential" type="text" id="lname" name="lname">
+					</li>
+					<li>
+						<label for="addr">Address: </label><input type="text" id="addr" name="addr">
+					</li>
+					<li>
+						<label for="city">City: </label><input class="essential" type="text" id="city" name="city">
+					</li>
+					<li>
+						<label for="state">State: </label><input class="essential" type="text" id="state" name="state"
+						placeholder="2-character code">
+					</li>
+					<li>
+						<label for="zipcode">ZIP Code: </label><input class="essential" type="tel" id="zipcode" name="zipcode"
+						placeholder="5 or 9 digits">
+					</li>
+					<li>
+						<label for="phone">Phone Number: </label><input type="tel" id="phone" name="phone"
+						placeholder="999-999-9999">
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset class="sub_group">
+				<legend>Membership Information</legend>
+				<ul type="none">
+					<li>
+						<label for="membershiptype">Membership Type: </label><select style="width: 218px" id="membershiptype" name="membershiptype">
+							<option value="junior">Junior
+							<option value="senior">Senior
+						</select>
+					</li>
+					<li>
+						<label for="startingdate">Starting Date: </label><input style="width: 215px" class="essential" type="date" id="startingdate" name="startingdate"
+						placeholder="At least 6 letters or numbers">
+					</li>
+					<li>
+						<label for="tiketguest">Tickets for Guests: </label><input  type="number" id="tiketguest" name="tiketguest">
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset class="sub_group">
+				<legend>Submit Your Membership</legend>
+				<ul type="none">
+					<li style="text-align: right; margin-right: 50px">
+						<input class="inputbutton" type="submit" value="Submit">
+						<input class="inputbutton" type="reset" value="Reset Fields">
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		</div>
+	</div>
+	<hr>
+	<div id="footer">
+	&copy; Copyright 2013 SCSA.
+	</div>
+
+</body>
+</html>
