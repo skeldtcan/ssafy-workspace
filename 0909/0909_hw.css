@@ -1,0 +1,73 @@
+ @charset "UTF-8";
+ /* *: 전체 선택자 - CSS 리셋*/
+ * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /*box의 크기 측정: content + padding + border*/
+	list-style: none;
+}
+
+a {
+	text-decoration: none; 
+	color: #0f9f48;
+}
+/* hover: mouse가 올라가면 적용, 내려오면 취소*/
+a:hover { cursor: pointer; }
+/* reset code 종료*/
+
+body{
+	width: 940px;
+	margin: 0 auto;
+	background: #f0f0f0;
+}
+
+p{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#wrap{
+	position: absolute;
+	width: 940px;
+	height: 100%;
+	background: url("./bgimg.jpg");
+	background-size: 100%;
+}
+
+#main_header > h1{
+	font-size: 4em;
+	margin: 120px 120px 50px 120px;
+	text-align: center;
+}
+
+#basic_info > img{
+	width: 300px;
+	height: 100%;
+	float: left;
+	margin-right: 20px;
+	margin-left: 150px;
+}
+
+#basic_info > div{
+	padding-top: 130px;
+}
+
+#basic_info > div > div, #other_info > div{
+	margin: 5px 0;
+}
+
+.subject{
+	font-style: italic;
+	float: left;
+	width: 100px;
+}
+
+#other_info{
+	position: absolute;
+	margin: 95px 150px 0 150px;
+}
+
+#other_info > div:nth-child(3) > p:nth-child(2){
+	width: 500px;
+	margin-left: 100px;
+}
