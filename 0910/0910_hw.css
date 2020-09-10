@@ -1,0 +1,35 @@
+@charset "UTF-8";
+ /* *: 전체 선택자 - CSS 리셋*/
+ * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /*box의 크기 측정: content + padding + border*/
+	list-style: none;
+}
+
+#main_box{
+	border: 1px solid;
+	margin: 100px;
+	width: 800px;
+	height: 300px;
+}
+
+#main_box > div{
+	margin: 10px;
+}
+
+#main_box > div > div{
+	text-align: center;
+	margin: 10px;
+	background-color: skyblue;
+	height: 240px;
+}
+
+.lottoNumber{
+	display: inline-block;
+	margin: 100px 5px;
+	width: 20px;
+	height: 20px;
+	background-color: yellow;
+	border-radius: 20px;
+}

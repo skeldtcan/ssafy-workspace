@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./0910_hw.css">
+	<title>로또</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		showTime();
+	};
+	
+	let nums = [];
+	let lotto = [];
+	let showLotto = [];
+	let showlot = 0;
+	let stringLot = '';
+	
+	for(let i=1; i<=45; i++){
+		nums.push(i);
+	}
+	for(let i=0; i<6; i++){
+		let lot = Math.floor(Math.random()*nums.length);
+		lotto.push(nums.splice(lot, 1)[0]);
+	}
+	
+	function sleep(ms) {
+ 		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	
+	async function showTime() {
+		console.log('추첨시작');
+		
+		for(let i=0; i<6; i++) {
+			await sleep(1000);
+			let lot = document.getElementById("lotto");
+			if(showLotto.length < 6) {
+				stringLot += "<span class='lottoNumber'>" + lotto[showlot++] + "</span>";
+				lot.innerHTML = stringLot;
+			}
+		}
+	}
+	
+	console.log(lotto);
+	
+	</script>
+</head>
+<body>
+	<div id="main_box">
+		<div>
+			<p>대박을 기원합니다~~</p>
+			<div>
+				<span id="lotto"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
