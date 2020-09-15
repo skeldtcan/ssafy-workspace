@@ -60,7 +60,6 @@
 	$("#login").on("click", function(){
 		let user_id = $("#user_id").val();
 		let user_pw = $("#user_pw").val();
-		console.log(user_id + ", " + user_pw);
 		$.ajax({
 			url: "userlist.xml",
 			type: "get",
@@ -87,7 +86,6 @@
 		})
 	})
 	$("#logout").on("click", function(){
-		console.log("hello");
 		$.ajax({
 			url: "./0915_hw.html",
 			type: "get",
