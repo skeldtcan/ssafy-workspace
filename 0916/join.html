@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+	li{
+		text-align: right;
+		margin: 5px;
+		margin-right: 140px;
+	}
+</style>
+</head>
+<body>
+	<form action="">
+		<fieldset class="sub_group" style="width: 600px">
+			<legend>Join us</legend>
+			<ul type="none">
+				<li>
+					<label for="new_id">ID: </label><input type="text" id="new_id" name="new_id"><br>
+					<button type=button value="중복확인" id=id_chk>중복확인</button>
+				</li>
+				<li>
+					<label for="new_id">PW: </label><input type="password" id="new_pw" name="new_pw">
+				</li>
+				<li>
+					<label for="new_id">PW2: </label><input type="password" id="new_pw2" name="new_pw2">
+				</li>
+				<li>
+					<label for="new_name">Name: </label><input type="text" name="new_name" id="new_name" />
+				</li>
+				<li>
+					<label for="new_email">E-Mail: </label><input type="email" id="new_email" name="new_email">
+				</li>
+				<li>
+					<label for="new_addr">Address: </label><input type="text" id="new_addr" name="new_addr">
+				</li>
+				<li>
+					<button type=button value="제출" id=submit>제출</button>
+				</li>
+			</ul>
+		</fieldset>
+	</form>
+</body>
+<script>
+	$("#id_chk").on("click", function(){
+		if ($("#new_id").val() == '') {
+			alert("공백은 사용할 수 없는 아이디 입니다.");
+		}
+		else {
+			let new_id = $("#new_id").val();
+			$.ajax({
+				url: "userlist.xml",
+				type: "get",
+				success: function(data){
+					let chksum = false;
+					let ids = $(data).find("id");
+					for(let i=0; i<ids.length; i++){
+						if (new_id == $(ids[i]).text()) {
+							chksum = true;
+							break;
+						}
+					}
+					if(chksum) {
+						alert("이미 사용중인 아이디 입니다.");
+					}
+					else {
+						alert("사용 가능한 아이디 입니다.");
+					}
+				}
+			})
+		}
+	})
+
+	$("#submit").on("click", function(){
+		let chk_empty = $("#new_id").val() != '' &&
+						$("#new_pw").val() != '' &&
+						$("#new_pw2").val() != '' &&
+						$("#new_name").val() != '' &&
+						$("#new_email").val() != '' &&
+						$("#new_addr").val() != '';
+		
+		if (chk_empty) {
+			alert("회원가입 완료!")
+			$(location).attr("href", "./0915_hw.html");
+		}
+		else {
+			alert("모든 필드를 채워야 합니다.")
+		}
+	})
+	
+</script>
+</html>

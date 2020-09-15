@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<user>
+		<id>qwerty123</id>
+		<name>홍길동</name>
+		<pw>123123</pw>
+		<tel>010-1234-5678</tel>
+		<email>qwer@qwer.com</email>
+		<addr>서울특별시 강남구</addr>
+	</user>
+	<user>
+		<id>asdf123</id>
+		<name>임꺽정</name>
+		<pw>000000</pw>
+		<tel>010-0000-0000</tel>
+		<email>asdf@asdf.com</email>
+		<addr>서울특별시 강서구</addr>
+	</user>
+	<user>
+		<id>zxcv123</id>
+		<name>장길산</name>
+		<pw>111111</pw>
+		<tel>010-1111-1111</tel>
+		<email>qwe@qwe.com</email>
+		<addr>서울특별시 양천구</addr>
+	</user>
+</users>
