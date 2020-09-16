@@ -1,0 +1,74 @@
+#frame{
+	margin: 0 auto;
+	width: 1000px;
+}
+#header{
+	margin-top: 10px;
+}
+.login_set{
+	text-align: right;
+}
+.banner{
+	text-align: center;
+	height: 200px;
+	font-size: 30px;
+	font-style: bold;
+	padding:80px;
+	background-color: #f5f5f5;
+	margin: 10px 0 10px 0;
+}
+.board_head{
+	height: 50px;
+}
+.write{
+	display: inline;
+	float: left;
+}
+.search{
+	display: inline;
+	float: right;
+}
+.attr{
+	text-align: center;
+}
+.content_title{
+	width: 550px;
+}
+.page_list{
+	margin-top: 30px;
+	text-align: center;
+}
+
+#write_title{
+	width: 100%;
+}
+#write_content{
+	width: 100%;
+}
+.write_btnset{
+	text-align: center;
+}
+.content{
+	height: 150px;
+}
+.reply{
+	margin-top: 50px;
+	height: 100px;
+}
+#write_reply{
+	width: 900px;
+	height: 100%;
+	display: inline-block;
+	float: left;
+}
+.reply_button{
+	height: 100%;
+	width: 80px;
+	margin: 0 10px 0 10px;
+}
+.table_title{
+	text-align: center;
+}
+.content_number{
+	text-align: left;
+}

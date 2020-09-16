@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./0916.css">
+</head>
+<body>
+	<div id="frame">
+		<div id="header"></div>
+		<div class="banner">SSAFY 게시판</div>
+		<div class="board_head">
+			<div class="write">
+				<button type:button class="btn btn-primary" id="write">글쓰기</button>
+			</div>
+			<div class="search">
+				<select name="category" id="category">
+					<option value="제목">제목</option>
+					<option value="작성자">작성자</option>
+					<option value="글번호">글번호</option>
+				</select>
+				<input type="text" />
+				<button type:button class="btn btn-secondary" id="search">검색</button>
+			</div>
+		</div>
+		<div>
+			<table class="table table-striped" id="board">
+				<thead>
+					<tr class="attr">
+						<th>글번호</th>
+						<th class="content_title">제목</th>
+						<th>작성자</th>
+						<th>조회수</th>
+						<th>작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="content1">
+						<td>123</td>
+						<td><a href="view_content.html?content_id=123">Dose</a></td>
+						<td>john@example.com</td>
+						<th>조회수</th>
+						<th>작성일</th>
+					</tr>
+					<tr id="content2">
+						<td>456</td>
+						<td for><a href="view_content.html?content_id=123">Moe</a></td>
+						<td>mary@example.com</td>
+						<th>조회수</th>
+						<th>작성일</th>
+					</tr>
+					<tr id="content3">
+						<td>789</td>
+						<td><a href="view_content.html?content_id=123">Dooley</a></td>
+						<td>july@example.com</td>
+						<th>조회수</th>
+						<th>작성일</th>
+					</tr>
+				</tbody>
+			</table>
+			<div class="page_list">
+				<button type="button" class="btn btn-outline-secondary">최신</button>
+				<button type="button" class="btn btn-outline-secondary">이전</button>
+				<button type="button" class="btn btn-outline-secondary">1</button>
+				<button type="button" class="btn btn-outline-secondary">2</button>
+				<button type="button" class="btn btn-outline-secondary">3</button>
+				<button type="button" class="btn btn-outline-secondary">다음</button>
+				<button type="button" class="btn btn-outline-secondary">마지막</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready( function() {
+	
+		$("#header").load("header.html");
+		$("#banner").load("banner.html");
+	});
+
+	$("#write").on("click", function(){
+		$(location).attr("href", "./write.html?id=test&pw=test");
+	})
+	
+	$("#content1").on("click", function(){
+		let num = $("#content1").children('td');
+		console.log($(num[0]).text());
+	})
+	
+	$("#content2").on("click", function(){
+		let num = $("#content2").children('td');
+		console.log($(num[0]).text());
+	})
+	
+	$("#content3").on("click", function(){
+		let num = $("#content3").children('td');
+		console.log($(num[0]).text());
+	})
+</script>
+</html>

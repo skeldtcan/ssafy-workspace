@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./0916.css">
+</head>
+<body>
+	<div id="frame">
+		<div id="header"></div>
+		<div class="banner">SSAFY 게시판</div>
+		<div class="board_head">
+			<div>
+				<button type:button class="btn btn-primary" id="write">글쓰기</button>
+				<button type:button class="btn btn-info" id="edit">수정</button>
+				<button type:button class="btn btn-danger" id="delete">삭제</button>
+			</div>
+		</div>
+		<div>
+			<table class="table table-bordered" id="board">
+				<thead>
+					<tr>
+						<th class="table_title">제목</th>
+						<th class="content_number" colspan=5>글번호, 글제목</th>
+					</tr>
+					<tr>
+						<th class="table_title">작성자</th>
+						<th class="table_title">싸피</th>
+						<th class="table_title">조회수</th>
+						<th class="table_title">0</th>
+						<th class="table_title">작성일</th>
+						<th class="table_title">0000.00.00</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th colspan=6 class="content">글내용</th>
+					</tr>
+				</tbody>
+			</table>
+			<div class="page_list">
+				<button type="button" class="btn btn-info" id="recent_list">최신목록</button>
+				<button type="button" class="btn btn-info" id="before_list">이전목록</button>
+			</div>
+			<div class="reply">
+				<textarea name="write_reply" id="write_reply"
+				placeholder="주제와 무관한 댓글, 악플은 삭제될 수 있습니다."></textarea>
+				<button type="button" class="btn btn-primary reply_button" id="reply_complete">작성</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script>
+	$(document).ready( function() {
+	
+		$("#header").load("header.html");
+		$("#banner").load("banner.html");
+	});
+	$("#write").on("click", function(){
+		$(location).attr("href", "./write.html?id=test&pw=test");
+	})
+	$("#recent_list").on("click", function(){
+		$(location).attr("href", "./0916_hw.html?id=test&pw=test");
+	})
+</script>
+</html>
