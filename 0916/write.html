@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./0916.css">
+</head>
+<body>
+	<div id="frame">
+		<div id="header"></div>
+		<div class="banner">SSAFY 게시판</div>
+		<div>
+			<form action="">
+				<div>제목: </div>
+				<div>
+					<input type="text" name="write_title" id="write_title" />
+				</div>
+				<div>내용: </div>
+				<div>
+					<textarea name="write_content" id="write_content" rows="10"></textarea>
+				</div>
+				<div class="write_btnset">
+					<button type="button" class="btn btn-primary" id="write_complete">글작성</button>
+					<button type="reset" class="btn btn-warning" id="write_reset">초기화</button>
+					<button type="button" class="btn btn btn-secondary" id="back_list">목록</button>
+				</div>	
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready( function() {
+	
+		$("#header").load("header.html");
+		$("#banner").load("banner.html");
+	});
+	
+	$("#write_complete").on("click", function(){
+		if ($("#write_title").val() == '' || $("#write_content").val() == '') {
+			alert("공백은 입력할 수 없습니다.");
+		}
+		else {
+			$(location).attr("href", "./0916_hw.html?id=test&pw=test");
+		}
+	});
+	
+	$("#back_list").on("click", function(){
+		$(location).attr("href", "./0916_hw.html");
+	});
+</script>
+</html>
