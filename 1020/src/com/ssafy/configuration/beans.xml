@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean 선언 -->
+	<!-- <bean id='product' class='com.ssafy.product.dto.product'/> -->
+	
+	
+	
+	<!--  DI 1. 생성사를 통해 의존 객체 주입하기 -->
+	<!--  생성자를 지정해서 객체 생성하기 
+		<constructor-arg> 태그가 인자 1개를 나타냄
+			value	: string 또는 기본 타입(int, byte, short, char, long, double, float, boolena) 주입할 때 사용
+			ref		: bean으로 등록된 객체를 주입할 때 사용
+	-->
+	
+	<!-- <bean id='product' class='com.ssafy.product.dto.product'>
+		<constructor-arg ref='isbn'/>
+		<constructor-arg value='처음하는 spring'/>
+	</bean> -->
+	
+	
+	
+	<!--DI 2. setter 메서드로 주입하기
+		- 기본 생성자로 객체를 생성한 후에 setter 메서드로 주입한다.
+		- <property name="">가 setter 메서드 하나를 호출한다.
+	 -->
+	 
+	 <bean id='product' class='com.ssafy.product.dto.Product'>
+		<property name="name"	value="처음하는 spring"></property>
+		<property name="price"	value="5000"></property>
+		<property name="info"	value="베스트셀러"></property>
+		<property name="company"	value="싸피출판사"></property>
+	</bean>
+	
+	<bean id='productDao'		class="com.ssafy.product.dao.ProductDaoImpl"/>
+	<bean id='productService'	class="com.ssafy.product.service.ProductServiceImpl">
+		<constructor-arg	ref='productDao'/>
+	</bean>
+	
+</beans>
