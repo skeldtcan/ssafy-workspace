@@ -1,5 +1,3 @@
-package com.ssafy.java.day1030;
-
 import java.io.*;
 import java.util.*;
 
@@ -19,6 +17,8 @@ public class Solution {
             Cost = new int[4];
             Plan = new int[12];
             Pay = new int[12];
+            Answer = Integer.MAX_VALUE;
+            output = new StringBuilder();
             
             tokens = new StringTokenizer(input.readLine());
             for(int i=0; i<4; i++) {
@@ -30,12 +30,11 @@ public class Solution {
             }
             
             d2m();
+            m2m3();
+            m2y();
             
-            System.out.println(Arrays.toString(Cost));
-            System.out.println(Arrays.toString(Plan));
-            
-            //output.append("#").append(t).append(" ");
-            //System.out.println(output);
+            output.append("#").append(t).append(" ").append(Answer);
+            System.out.println(output);
         }
     }
     static void d2m() {
@@ -50,16 +49,26 @@ public class Solution {
         
         while(!q.isEmpty()) {
             int[] tmp = q.poll();
+            int sum=tmp[1];
+            //System.out.println("시작 " + tmp[0] + " ------ " + tmp[1]);
             for(int i=tmp[0]; i<12; i++) {
-                
+            	int s = Pay[i];
+                if(i+1<12)
+                	s += Pay[i+1];
+                if(i+2<12)
+                	s += Pay[i+2];
+                if(s>Cost[2] && i+2<12) {
+                	//System.out.println(i + " - 3개월 : " + sum + " + " + s);
+                	q.add(new int[] {i+3, sum + Cost[2]});
+                }
+            	//System.out.println(i + " - 1개월 : " + sum);
+            	sum += Pay[i];
             }
+            //System.out.println(Answer + " - " + sum);
+            Answer = Math.min(Answer, sum);
         }
     }
-    static int m2y() {
-        int s = 0;
-        for(int i=0; i<12; i++) {
-            s += Pay[i];
-        }
-        return Math.min(s, Cost[3]);
+    static void m2y() {
+        Answer = Math.min(Answer, Cost[3]);
     }
 }
