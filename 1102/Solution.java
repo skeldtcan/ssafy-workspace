@@ -38,11 +38,11 @@ public class Solution {
         }
 	}
     static void dfs(int b, int cnt, int[][] map) {
-    	if(cnt >= Answer) {
+    	if(cnt >= Answer) {							// 다 없앴으면 나가기
     		Clear = Answer;
     		return;
     	}
-    	if(b == 0) {
+    	if(b == 0) {								// 구슬 없으면 끝
     		Clear = Math.max(Clear, cnt);
     		return;
     	}
@@ -65,6 +65,7 @@ public class Solution {
     		}
     	}
     }
+    
     // 블럭 깨기
     static int breakBlock(int r, int c, int[][] tmpMap) {
     	int sum = 0;									// 없앤 블럭의 수
