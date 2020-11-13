@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>타이틀</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <p>
+        <a href="./index.html">HOME</a>
+        <a href="./list.html">사원 목록</a>
+      </p>
+      <h2 class="text-center">SSAFY HRM ADD EMPLOEE</h2>
+      <table
+        class=" table table-condensed w-25 ">
+        <tr>
+          <th>사원명</th>
+          <td><input type="text" id="name" v-model="name" ref="name" placeholder="사원명"></td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td><input type="text" id="email" v-model="email" ref="email" placeholder="이메일"></td>
+        </tr>
+        <tr>
+          <th>고용일</th>
+          <td><input type="date" id="date" v-model="date" ref="date" placeholder="고용일"></td>
+        </tr>
+        <tr>
+          <th>관리자</th>
+          <td>
+            <select v-model="manager">
+              <option value="">선택하세요</option>
+              <option value="김동현">김동현</option>
+              <option value="가나다">가나다</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>직책</th>
+          <td>
+            <select v-model="job">
+              <option value="">선택하세요</option>
+              <option value="사장">사장</option>
+              <option value="부장">부장</option>
+              <option value="과장">과장</option>
+              <option value="사원">사원</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>부서</th>
+          <td><input type="text" id="part" v-model="part" ref="part" placeholder="부서"></td>
+        </tr>        
+        <tr>
+          <th>연봉</th>
+          <td><input type="text" id="sal" v-model="sal" ref="sal" placeholder="월급"></td>
+        </tr>
+        <tr>
+          <th>커미션</th>
+          <td><input type="text" id="comm" v-model="comm" ref="comm" placeholder="커미션"></td>
+        </tr>
+        
+      </table>
+      <div  class='text-right'>
+        <button class="btn btn-primary" @click="createHandler">등록</button>
+        <button class="btn btn-primary" @click="moveHandler">목록</button>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            selectedArea: '',
+            manager:'',
+            date:'',
+            email:'',
+            name:'',
+            part:'',
+            job:'',
+            sal:'',
+            comm:''
+          }
+        },
+        methods:{
+          createHandler:function(){
+            let err = true;
+            let msg = "";
+            // 데이터를 작성하는 필수 요건을 검사한다.
+            !this.name && (msg="아이디를 입력해 주세요", err=false, this.$refs.name.focus());
+            err && !this.part && (msg="부서를 입력해 주세요", err=false, this.$refs.part.focus());
+            err && !this.job && (msg="직무를 입력해 주세요", err=false, this.$refs.job.focus());
+            err && !this.sal && (msg="연봉을 입력해 주세요", err=false, this.$refs.sal.focus());
+
+            if(!err) alert(msg)
+            else{
+              // localStorage에 등록하기
+              const emp = localStorage.getItem("emp");
+              let newEmp = {
+                sequence : 0,
+                items : []
+              }
+              if(emp){
+                newEmp = JSON.parse(emp);
+              }
+              newEmp.sequence+=1;
+              newEmp.items.push({
+                no:newEmp.sequence,
+                name:this.name,
+                part:this.part,
+                job:this.job,
+                sal:this.sal
+              })
+
+              localStorage.setItem("emp", JSON.stringify(newEmp));
+              alert("등록완료");
+              location.href="list.html"
+            }
+          },
+          moveHandler:function(){
+            location.href="list.html"
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

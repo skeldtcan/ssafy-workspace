@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>사원 목록</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app" class='container'>
+        
+        <h2 class='text-center'> Vue를 이용한 게시판</h2>
+        <div class="text-center">
+            <input type="text" v-model="id" ref="id" />
+            <button @click="search">검색</button>
+        </div>
+        <div class="text-right">
+            <button class="btn btn-primary" @click="movePage">등록</button>
+        </div>
+        <div v-if="emps.length">
+            <table class='table table-boarded table-condensed'>
+                <colgroup>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                </colgroup>
+                <tr>
+                    <td>사원아이디</td>                    
+                    <td>사원명</td>                    
+                    <td>부서</td>                    
+                    <td>직책</td>
+                    <td>월급</td>                    
+                </tr>
+                <tr v-for="(emp, index) in emps">
+                    <td v-text="emp.no"></td>
+                    <td v-text="emp.name"></td>
+                    <td v-text="emp.part"></td>
+                    <td v-text="emp.job"></td>
+                    <td v-text="emp.sal"></td>
+                </tr>
+            </table>
+        </div>
+        <div v-else>
+                <h3 class='text-center'>직원이 없습니다</h3>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el :'#app',
+            data:{
+                id: '',
+                emps:[]
+            },
+            methods:{
+                movePage : function(){
+                    location.href="create.html"
+                },
+                search() {
+                    if (this.id.length == 0) {
+                        const emp = localStorage.getItem("emp");
+                        let newEmp = {sequence:0, items:[]};
+                        newEmp = JSON.parse(emp)
+                        newEmp.items.sort((a,b) =>{
+                            return -(a.no - b.no)
+                        })
+                        this.emps = newEmp.items
+                    }
+                    else{
+                        let newEmp = {sequence:0, items:[]}
+                        let temp = JSON.parse(localStorage.getItem("emp"));
+                        for(tmp of temp.items){
+                            if(tmp.name.includes(this.$refs.id.value)){
+                                newEmp.items.push(tmp);
+                            }
+                        }
+                        newEmp.items.sort((a,b) =>{
+                            return -(a.no - b.no)
+                        })
+                        this.emps = newEmp.items;
+                        
+                        alert('검색 성공');
+                    }                    
+                }
+            },
+            created(){
+                const emp = localStorage.getItem("emp");
+                let newEmp = {sequence:0, items:[]}
+                if(emp){
+                    newEmp = JSON.parse(emp)
+                }else{
+                    localStorage.setItem("emp", JSON.stringify(newEmp))
+                }
+
+                newEmp.items.sort((a,b) =>{
+                    return -(a.no - b.no)
+                })
+                this.emps = newEmp.items
+            }
+        })
+    
+    </script>
+</body>
+</html>
