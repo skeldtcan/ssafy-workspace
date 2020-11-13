@@ -30,3 +30,6 @@
   color: #42b983;
 }
 </style>
+<style>
+  @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+</style>
