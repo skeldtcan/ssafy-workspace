@@ -12,7 +12,7 @@
         </tr>
         <tr>
             <th>부서</th>
-            <td v-text="board.dept_id"></td>
+            <td v-text="board.dept_name"></td>
         </tr>
         <tr>
             <th>직급</th>
@@ -45,7 +45,7 @@ export default {
   },
   created() {
       const params = new URL(document.location).searchParams;
-      axios.get(`http://localhost:8097/hrmboot/api/employee/all/${params.get('id')}`)
+      axios.get(`http://localhost:8097/hrmboot/api/employee/${params.get('id')}`)
           .then(({ data }) => {
               this.board = data
           })
