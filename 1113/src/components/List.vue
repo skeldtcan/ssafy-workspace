@@ -24,7 +24,7 @@
               >
             </td>
             <td v-text="board.name"></td>
-            <td v-text="board.dept_id"></td>
+            <td v-text="board.dept_name"></td>
             <td v-text="board.title"></td>
             <td v-text="board.salary"></td>
           </tr>
