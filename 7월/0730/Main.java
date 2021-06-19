@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.ssafy.java.day12;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,7 +47,6 @@ public class Main {
 			System.out.printf("%d ",a);
 		}
 	}
-=======
 package com.ssafy.java.day12;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -101,5 +99,4 @@ public class Main {
             System.out.print(a +" ");
 		
 	}
->>>>>>> branch 'master' of https://lab.ssafy.com/skeldtcan/s07_homework.git
 }
