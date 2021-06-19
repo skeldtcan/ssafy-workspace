@@ -17,14 +17,14 @@ class Top {
 
 public class Main {
 	static int[] answer;
-	
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		Stack<Top> stack = new Stack<Top>();
 		int N = Integer.parseInt( bf.readLine());
 		StringTokenizer st = new StringTokenizer(bf.readLine());
 		answer = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			int building = Integer.parseInt(st.nextToken());
 			if (!stack.isEmpty()) {
@@ -32,11 +32,11 @@ public class Main {
 					while (!stack.isEmpty() && stack.peek().height < building) {
 						stack.pop();
 					}
-					
+
 					if(!stack.isEmpty()) {
 						answer[i] = stack.peek().idx + 1;
 					}
-					
+
 					stack.push(new Top(building, i));
 				} else {
 					answer[i] = stack.peek().idx + 1;
